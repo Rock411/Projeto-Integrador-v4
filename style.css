@@ -1,0 +1,237 @@
+/* =================== */
+/* VARIÁVEIS GLOBAIS   */
+/* =================== */
+
+:root {
+  --card-w: 420px; /* Largura do card */
+  --card-h: 560px; /* Altura mínima do card */
+  --accent-green: #00ff66; /* Cor do botão 'Entrar' */
+  --card-radius: 18px; /* Raio de borda do card */
+  --bg-image: url('/images.jpeg'); /* Imagem de fundo */
+}
+
+/* ============= */
+/* RESET GERAL   */
+/* ============= */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Fundo com a imagem e cor de fundo */
+  background: url("monstrance-3483291_1280.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  background-color: #0b1b33; /* Cor de fundo azul escuro */
+  color: #ffffff; /* Cor do texto para contraste */
+}
+
+/* ============================= */
+/* ÁREA DE FUNDO COM BORRADO    */
+/* ============================= */
+.bg-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+.bg-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 20px;
+  border-radius: 22px;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px) brightness(0.8); /* Borrado + escurecimento */
+}
+.bg-overlay {
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 8px 30px #00188D inset;
+}
+
+/* =========================== */
+/* CARD CENTRAL (formulário)  */
+/* =========================== */
+.card {
+  position: relative;
+  z-index: 1;
+  width: var(--card-w);
+  min-height: var(--card-h);
+  padding: 28px;
+  border-radius: var(--card-radius);
+  background: #0022ff26;
+  backdrop-filter: blur(6px);
+  border: 3px solid #0f5bcc99;
+  box-shadow: 0 10px 30px #03081499;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ================== */
+/* LOGO E NOME MARCA */
+/* ================== */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.logo svg { width: 68px; height: 68px; }
+.brand {
+  display: flex;
+  gap: 8px;
+  font-weight: 700;
+}
+.blc { color: #e74c3c; } /* Cor "BLC" */
+.tech { color: #00c3ff; } /* Cor "TECHNOLOGY" */
+
+/* ============================== */
+/* CAMPOS DE FORMULÁRIO         */
+/* ============================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label.small {
+  font-size: 12px;
+  color: #ffffff;
+}
+
+/* Estilo da caixa de entrada */
+.input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid #000000;
+  padding: 10px;
+  border-radius: 8px;
+  background: #ffffff;
+}
+.input-wrap svg {
+  width: 18px;
+  height: 18px;
+}
+.input-wrap:focus-within {
+  border-color: #007BFF;
+}
+.input-wrap input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 14px;
+  padding: 6px 8px;
+}
+input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 14px;
+}
+
+/* =================== */
+/* DIVISOR COM "OU"    */
+/* =================== */
+.or {
+  text-align: center;
+  font-size: 13px;
+  color: #ffffffff;
+  position: relative;
+}
+.or::before, .or::after {
+  content: "";
+  height: 1px;
+  background: rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 50%;
+  width: 38%;
+}
+.or::before { left: 6%; }
+.or::after { right: 6%; }
+
+/* ==================== */
+/* BOTÕES DE REDES SOCIAIS */
+/* ==================== */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+.s-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+.s-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ================ */
+/* BOTÃO "ENTRAR"   */
+/* ================ */
+.btn-primary {
+  margin-top: 8px;
+  background: var(--accent-green);
+  border-radius: 22px;
+  padding: 12px 18px;
+  text-align: center;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* ================ */
+/* RODAPÉ LINKS     */
+/* ================ */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+.footer a {
+  text-decoration: none;
+  font-weight: 600;
+}
+.footer a:first-child {
+  color: #2e86de;
+}
+.footer a.forgot {
+  color: #f4d03f;
+}
+
+/* =============== */
+/* RESPONSIVO      */
+/* =============== */
+@media (max-width: 520px) {
+  :root {
+    --card-w: 92vw;
+  }
+  .bg-wrap::before {
+    inset: 12px;
+  }
+}
+/* ================= */
+/* FIM DO CSS      */

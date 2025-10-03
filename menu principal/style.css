@@ -1,0 +1,174 @@
+/* =================== */
+/* VARIÁVEIS GLOBAIS   */
+/* =================== */
+:root {
+  --card-w: 420px;
+  --card-h: 560px;
+  --card-radius: 18px;
+  --accent-blue: #0077cc;
+  --accent-green: #00ff66;
+  --bg-image: url('monstrance-3483291_1280.jpeg');
+  --card-red: #ff4d4db3;
+  --card-yellow: #ffcc00b3;
+  --card-green: #00cc66b3;
+}
+
+/* ============= */
+/* RESET GERAL   */
+/* ============= */
+* { box-sizing: border-box; margin:0; padding:0; font-family: "Inter", Arial, sans-serif; }
+html, body { height: 100%; }
+
+/* ================= */
+/* FUNDO COM BORRADO */
+/* ================= */
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  background: #0b1b33; /* azul translúcido */
+  z-index: 0;
+  box-shadow: 0 8px 30px #00188D inset;
+}
+
+/* =========================== */
+/* CARD PRINCIPAL               */
+/* =========================== */
+.card {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: var(--card-radius);
+  backdrop-filter: blur(6px);
+  background: #0022ff26; /* azul translúcido */
+  border: 2px solid #0077cc80;
+  box-shadow: 0 10px 25px #00000059;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  color: white; /* TODOS OS TEXTOS DO CARD FICAM BRANCOS */
+}
+
+/* ================= */
+/* TOPO / BARRA       */
+/* ================= */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: var(--card-radius);
+  padding: 15px 20px;
+  backdrop-filter: blur(6px);
+  background: rgba(0,119,204,0.25);
+  border: 2px solid rgba(0,119,204,0.5);
+}
+.topbar h1 { font-size: 22px; font-weight: 700; color:white; }
+.topbar nav a { color: white; margin-left: 15px; text-decoration:none; font-weight:600; }
+
+/* ================= */
+/* RESUMO / TEXTO    */
+/* ================= */
+.resumo h2 { font-weight:700; color:white; }
+.resumo p { margin-top:5px; color: rgba(255,255,255,0.8); }
+
+/* ================= */
+/* CARDS 50/30/20    */
+/* ================= */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.cards > div {
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  padding: 20px;
+  border-radius: var(--card-radius);
+  backdrop-filter: blur(6px);
+  border: 2px solid rgba(0,119,204,0.5);
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 0.2s;
+  color:white; /* Garantindo que o texto de todos os cards seja branco */
+}
+.cards > div:hover { transform: translateY(-5px); }
+.card-50 { background: var(--card-red); color:white; }
+.card-30 { background: var(--card-yellow); color:white; } /* Alterado para branco */
+.card-20 { background: var(--card-green); color:white; }
+.cards span { display:block; margin-top:12px; font-size:24px; }
+
+/* ================= */
+/* INPUTS E BOTÕES    */
+/* ================= */
+.input-section { text-align:center; }
+.input-wrap {
+  display:flex;
+  gap:10px;
+  justify-content:center;
+}
+.input-wrap input {
+  padding:12px 15px;
+  border-radius:12px;
+  border:none;
+  outline:none;
+  font-size:16px;
+  backdrop-filter: blur(6px);
+  background: #0077cc4d;
+  color:white;
+}
+.input-wrap input::placeholder { color: #ffffff99;}
+.input-wrap button {
+  padding:12px 25px;
+  background: var(--accent-blue);
+  border:none;
+  color:white;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+  transition: all 0.2s;
+}
+.input-wrap button:hover { background:#005fa3; transform:translateY(-2px); }
+
+/* ================= */
+/* GRÁFICO           */
+/* ================= */
+.grafico {
+  margin:30px auto;
+  text-align:center;
+  padding:20px;
+  border-radius: var(--card-radius);
+  backdrop-filter: blur(6px);
+  background: rgba(0,119,204,0.3);
+  border:2px solid rgba(0,119,204,0.5);
+  color:white;
+}
+.grafico canvas { max-width:350px; width:100%; margin:0 auto; display:block; }
+
+/* ================= */
+/* RODAPÉ            */
+/* ================= */
+.footer {
+  text-align:center;
+  padding:15px;
+  border-radius: var(--card-radius);
+  background: #0077cc40;
+  border:2px solid #0077cc80;
+  font-weight:600;
+  box-shadow:0 8px 20px #00000040;
+  margin-top:20px;
+  color:white;
+}
+
+/* ================= */
+/* RESPONSIVO        */
+/* ================= */
+@media(max-width:520px){
+  .cards { flex-direction:column; align-items:center; }
+  .cards > div { width:90%; }
+  .input-wrap { flex-direction:column; }
+  .input-wrap input, .input-wrap button { width:90%; margin-bottom:10px; }
+}

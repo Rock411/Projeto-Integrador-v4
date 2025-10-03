@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - Fluxo Digital</title>
+  <link rel="stylesheet" href="/cadastro.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Fundo com blur e overlay -->
+  <div class="bg-wrap" aria-hidden="true">
+    <div class="bg-overlay"></div>
+  </div>
+
+  <!-- Card de Cadastro -->
+  <div class="card">
+    <h1>Seja bem-vindo ao <br>
+      <span class="fluxo">Fluxo</span> <span class="digital">Digital</span>
+    </h1>
+
+    <div class="form-container">
+      <!-- Coluna Esquerda -->
+      <div class="left">
+        <a href="/index.html" class="voltar">&larr; Voltar</a>
+        <p>Para continuar, preencha os campos abaixo para criar sua conta:</p>
+
+        <label>Digite o seu Nome:</label>
+        <input type="text" placeholder="Seu nome">
+
+        <label>Digite seu E-mail:</label>
+        <input type="email" placeholder="exemplo@email.com">
+
+        <label>Digite seu telefone:</label>
+        <input type="tel" placeholder="(99) 99999-9999">
+
+        <p class="outros">Outros métodos de login:</p>
+        <div class="social-icons">
+          <button class="google"><i class="fab fa-google"></i></button>
+          <button class="facebook"><i class="fab fa-facebook"></i></button>
+          <button class="apple"><i class="fab fa-apple"></i></button>
+        </div>
+      </div>
+
+      <!-- Coluna Direita -->
+      <div class="right">
+        <p>Crie uma senha:</p>
+        <ul>
+          <li>Mínimo 8 caracteres</li>
+          <li>Mínimo 2 números</li>
+          <li>Mínimo 1 caracter especial</li>
+          <li>Mínimo 1 letra maiúscula</li>
+          <li>Mínimo 1 letra minúscula</li>
+        </ul>
+
+        <label>Digite sua senha:</label>
+        <input type="password" placeholder="********">
+
+        <label>Confirme sua senha:</label>
+        <input type="password" placeholder="********">
+      </div>
+    </div>
+
+    <button class="submit" onclick="cadastrar()">Avançar</button>
+  </div>
+
+  <!-- JS -->
+   <script>
+    function cadastrar() {
+      const nome = document.querySelector('input[placeholder="Seu nome"]').value;
+      const email = document.querySelector('input[placeholder="exemplo@email.com"]').value;
+      const telefone = document.querySelector('input[placeholder="(99) 99999-9999"]').value;
+      const senha = document.querySelectorAll('input[type="password"]')[0].value;
+      const confirmar = document.querySelectorAll('input[type="password"]')[1].value;
+
+      if (!nome || !email || !telefone || !senha || !confirmar) {
+        alert("Preencha todos os campos!");
+        return;
+      }
+
+      if (senha !== confirmar) {
+        alert("As senhas não coincidem!");
+        return;
+      }
+
+      const user = { nome, email, telefone, senha };
+      localStorage.setItem(email, JSON.stringify(user));
+
+      alert("Cadastro realizado com sucesso!");
+      window.location.href = "index.html"; // vai para login
+    }
+  </script>
+  
+</body>
+</html>

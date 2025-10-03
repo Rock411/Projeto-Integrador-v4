@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Regra 50/30/20</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fundo com overlay e blur -->
+  <div class="bg-wrap"></div>
+  <div class="bg-overlay"></div>
+
+  <main class="card">
+    <header class="topbar">
+      <h1>Dashboard Financeiro</h1>
+      <nav>
+        <a href="#">Início</a>
+        <a href="#">Perfil</a>
+        <a href="#">Sair</a>
+      </nav>
+    </header>
+
+    <section class="resumo">
+      <h2>Resumo da Regra 50/30/20</h2>
+      <p>Veja como organizar sua renda mensal:</p>
+    </section>
+
+    <section class="cards">
+      <div class="card-50">
+        <h3>50% - Necessidades</h3>
+        <p>Aluguel, contas, alimentação...</p>
+        <span id="valor50">R$ 0</span>
+      </div>
+
+      <div class="card-30">
+        <h3>30% - Desejos</h3>
+        <p>Lazer, viagens, hobbies...</p>
+        <span id="valor30">R$ 0</span>
+      </div>
+
+      <div class="card-20">
+        <h3>20% - Prioridades</h3>
+        <p>Poupança, investimentos...</p>
+        <span id="valor20">R$ 0</span>
+      </div>
+    </section>
+
+    <section class="input-section">
+      <h2>Calcule seus percentuais</h2>
+      <div class="input-wrap">
+        <input type="number" id="salario" placeholder="Ex: R$ 1518,00">
+        <button onclick="calcular()">Calcular</button>
+      </div>
+    </section>
+
+    <section class="grafico">
+      <h2>Distribuição dos Gastos</h2>
+      <canvas id="graficoPizza"></canvas>
+    </section>
+
+    <footer class="footer">
+      <p>📊 Regra 50/30/20 - Educação Financeira</p>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
