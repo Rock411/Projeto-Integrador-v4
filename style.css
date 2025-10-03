@@ -7,7 +7,7 @@
   --card-h: 560px; /* Altura mínima do card */
   --accent-green: #00ff66; /* Cor do botão 'Entrar' */
   --card-radius: 18px; /* Raio de borda do card */
-  --bg-image: url('/images.jpeg'); /* Imagem de fundo */
+  --bg-image: url('images.jpeg'); /* Imagem de fundo */
 }
 
 /* ============= */
