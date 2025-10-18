@@ -1,78 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro - Fluxo Digital</title>
-  <link rel="stylesheet" href="/cadastro.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastro — Trayease</title>
+  <link rel="stylesheet" href="/style.css" />
 </head>
-<body>
-  <!-- Fundo com blur e overlay -->
-  <div class="bg-wrap" aria-hidden="true">
-    <div class="bg-overlay"></div>
-  </div>
+<body class="cadastro">
 
-  <!-- Card de Cadastro -->
-  <div class="card">
-    <h1>Seja bem-vindo ao <br>
-      <span class="fluxo">Fluxo</span> <span class="digital">Digital</span>
-    </h1>
+  <div class="bg-wrap"></div>
+  <div class="bg-overlay"></div>
 
-    <div class="form-container">
-      <!-- Coluna Esquerda -->
-      <div class="left">
-        <a href="index.html" class="voltar">&larr; Voltar</a>
-        <p>Para continuar, preencha os campos abaixo para criar sua conta:</p>
-
-        <label>Digite o seu Nome:</label>
-        <input type="text" placeholder="Seu nome">
-
-        <label>Digite seu E-mail:</label>
-        <input type="email" placeholder="exemplo@email.com">
-
-        <label>Digite seu telefone:</label>
-        <input type="tel" placeholder="(99) 99999-9999">
-
-        <p class="outros">Outros métodos de login:</p>
-        <div class="social-icons">
-          <button class="google"><i class="fab fa-google"></i></button>
-          <button class="facebook"><i class="fab fa-facebook"></i></button>
-          <button class="apple"><i class="fab fa-apple"></i></button>
-        </div>
+  <main class="card">
+    <header class="logo">
+      <img src="/assets/logo.png" alt="Logo" width="100" height="100">
+      <div class="brand">
+        <div class="try">Trayease</div>
+        <div class="tech">Software Developer</div> 
       </div>
+    </header>
 
-      <!-- Coluna Direita -->
-      <div class="right">
-        <p>Crie uma senha:</p>
-        <ul>
-          <li>Mínimo 8 caracteres</li>
-          <li>Mínimo 2 números</li>
-          <li>Mínimo 1 caracter especial</li>
-          <li>Mínimo 1 letra maiúscula</li>
-          <li>Mínimo 1 letra minúscula</li>
-        </ul>
+    <h1>Cadastro</h1>
 
-        <label>Digite sua senha:</label>
-        <input type="password" placeholder="********">
+    <form id="cadastroForm">
+      <label>Nome:</label>
+      <input type="text" placeholder="Seu nome" required>
 
-        <label>Confirme sua senha:</label>
-        <input type="password" placeholder="********">
-      </div>
+      <label>E-mail:</label>
+      <input type="email" placeholder="exemplo@email.com" required>
+
+      <label>Telefone:</label>
+      <input type="tel" placeholder="(99) 99999-9999" required>
+
+      <label>Senha:</label>
+      <input type="password" placeholder="********" required>
+
+      <label>Confirmar Senha:</label>
+      <input type="password" placeholder="********" required>
+
+      <button type="submit" class="btn-primary">Cadastrar</button>
+    </form>
+
+    <div class="footer">
+      <a href="/index.html">Voltar para Login</a>
     </div>
+  </main>
 
-    <button class="submit" onclick="cadastrar()">Avançar</button>
-  </div>
+  <script>
+    document.getElementById("cadastroForm").addEventListener("submit", function(e) {
+      e.preventDefault();
 
-  <!-- JS -->
-   <script>
-    function cadastrar() {
-      const nome = document.querySelector('input[placeholder="Seu nome"]').value;
-      const email = document.querySelector('input[placeholder="exemplo@email.com"]').value;
-      const telefone = document.querySelector('input[placeholder="(99) 99999-9999"]').value;
-      const senha = document.querySelectorAll('input[type="password"]')[0].value;
-      const confirmar = document.querySelectorAll('input[type="password"]')[1].value;
+      const inputs = this.querySelectorAll("input");
+      const nome = inputs[0].value.trim();
+      const email = inputs[1].value.trim();
+      const telefone = inputs[2].value.trim();
+      const senha = inputs[3].value.trim();
+      const confirmar = inputs[4].value.trim();
 
       if (!nome || !email || !telefone || !senha || !confirmar) {
         alert("Preencha todos os campos!");
@@ -84,13 +67,12 @@
         return;
       }
 
-      const user = { nome, email, telefone, senha };
-      localStorage.setItem(email, JSON.stringify(user));
+      const usuario = { nome, email, telefone, senha };
+      localStorage.setItem(email, JSON.stringify(usuario));
 
-      alert("Cadastro realizado com sucesso!");
-      window.location.href = "index.html"; // vai para login
-    }
+      alert("Cadastro realizado com sucesso! Faça login para continuar.");
+      window.location.href = "/index.html"; // redireciona para login
+    });
   </script>
-  
 </body>
 </html>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - Regra 50/30/20</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard — Trayease 50/30/20</title>
+  <link rel="stylesheet" href="/menu principal/style.css" />
 </head>
 <body>
 
@@ -12,60 +12,86 @@
   <div class="bg-wrap"></div>
   <div class="bg-overlay"></div>
 
-  <main class="card">
-    <header class="topbar">
-      <h1>Dashboard Financeiro</h1>
-      <nav>
-        <a href="#">Início</a>
-        <a href="#">Perfil</a>
-        <a href="#">Sair</a>
+  <!-- TOPO DA PÁGINA -->
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">
+          <img src="/assets/logo.png" alt="Logo" />
+        </div>
+        Trayease
+      </div>
+
+      <nav class="navbar">
+        <a href="/menu principal/index.html">Início</a>
+        <a href="/menu principal/perfil.html">Perfil</a>
+        <a href="https://economia.uol.com.br/noticias/redacao/2024/02/02/metodo-50-30-20-aprenda-a-tecnica-para-passar-de-devedor-a-investidor.htm">Dicas Financeiras</a>
+        <a href="/index.html" onclick="logout()">Sair</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <section class="resumo">
-      <h2>Resumo da Regra 50/30/20</h2>
-      <p>Veja como organizar sua renda mensal:</p>
+  <!-- CONTAINER PRINCIPAL -->
+  <main class="container">
+    <h2>Bem-vindo, <span id="nomeUsuario">--</span>!</h2>
+
+    <!-- Cards 50/30/20 + Saldo Anual ( ficará abaixo ) -->
+    <section class="cards" id="cardsRow">
+      <div class="card-item card-50">
+        <h3>50%</h3>
+        <p>Necessidades</p>
+        <span id="valor50">R$ 0,00</span>
+      </div>
+      <div class="card-item card-30">
+        <h3>30%</h3>
+        <p>Desejos</p>
+        <span id="valor30">R$ 0,00</span>
+      </div>
+      <div class="card-item card-20">
+        <h3>20%</h3>
+        <p>Prioridades</p>
+        <span id="valor20">R$ 0,00</span>
+      </div>
     </section>
 
+    <!-- Saldo Anual card (fica abaixo dos 3 cards) -->
     <section class="cards">
-      <div class="card-50">
-        <h3>50% - Necessidades</h3>
-        <p>Aluguel, contas, alimentação...</p>
-        <span id="valor50">R$ 0</span>
-      </div>
-
-      <div class="card-30">
-        <h3>30% - Desejos</h3>
-        <p>Lazer, viagens, hobbies...</p>
-        <span id="valor30">R$ 0</span>
-      </div>
-
-      <div class="card-20">
-        <h3>20% - Prioridades</h3>
-        <p>Poupança, investimentos...</p>
-        <span id="valor20">R$ 0</span>
+      <div class="card-item card-annual">
+        <h3>Saldo Anual</h3>
+        <span id="valorAnual">R$ 0,00</span>
       </div>
     </section>
 
+    <!-- Input de salário/despesa (em tempo real) -->
     <section class="input-section">
-      <h2>Calcule seus percentuais</h2>
+      <h2>Informe seu salário e despesa</h2>
       <div class="input-wrap">
-        <input type="number" id="salario" placeholder="Ex: R$ 1518,00">
-        <button onclick="calcular()">Calcular</button>
+        <input type="number" id="salario" placeholder="Ex: 1518.00" step="0.01" />
+        <input type="number" id="despesaDiaria" placeholder="Despesa diária (Ex: 50.00)" step="0.01" />
       </div>
+      <p class="muted">As mudanças são salvas automaticamente.</p>
     </section>
 
+    <!-- Gráfico 50/30/20 -->
     <section class="grafico">
       <h2>Distribuição dos Gastos</h2>
       <canvas id="graficoPizza"></canvas>
     </section>
 
-    <footer class="footer">
-      <p>📊 Regra 50/30/20 - Educação Financeira</p>
-    </footer>
+    <!-- Gráfico de Estimativa de Investimento -->
+    <section class="grafico">
+      <h2>Estimativa de Investimento Futuro (12 meses)</h2>
+      <canvas id="graficoInvestimento"></canvas>
+    </section>
+
   </main>
 
+  <footer class="footer">
+    <p>Trayease — Software Developer © 2025 Todos os direitos reservados</p>
+  </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="script.js"></script>
+  <!-- script.js externo -->
+  <script src="/menu principal/script.js"></script>
 </body>
 </html>
