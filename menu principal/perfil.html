@@ -37,14 +37,18 @@
     <section class="profile-card">
       <h2>Perfil do Usuário</h2>
       <div class="profile-info">
-        <p><strong>Nome:</strong> <span id="nomePerfil">--</span></p>
-        <p><strong>E-mail:</strong> <span id="emailPerfil">--</span></p>
-        <p><strong>Telefone:</strong> <span id="telefonePerfil">--</span></p>
-      </div>
-
-      <!-- Botão de atualizar -->
-      <div class="update-btn-wrap">
-        <button id="updateBtn" class="btn-primary">Atualizar Dados</button>
+        <p>
+          <strong>Nome:</strong> <span id="nomePerfil">--</span>
+          <button class="update-field" data-field="nome">Atualizar</button>
+        </p>
+        <p>
+          <strong>E-mail:</strong> <span id="emailPerfil">--</span>
+          <button class="update-field" data-field="email">Atualizar</button>
+        </p>
+        <p>
+          <strong>Telefone:</strong> <span id="telefonePerfil">--</span>
+          <button class="update-field" data-field="telefone">Atualizar</button>
+        </p>
       </div>
     </section>
 
@@ -110,5 +114,8 @@
       localStorage.removeItem("usuarioLogado");
     }
   </script>
+  <!-- script.js externo -->
+  <script src="/menu principal/script.js"></script>
+
 </body>
 </html>

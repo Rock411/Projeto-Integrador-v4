@@ -310,3 +310,22 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #00ffcc transparent;
 }
+
+/* ===================== BOTÃO ATULIZAR PERFIL ===================== */
+.update-field {
+  margin-left: 10px;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border: 1px solid #00ccff;
+  border-radius: 4px;
+  background-color: #06102a;
+  color: #00ccff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.update-field:hover {
+  background-color: #00ccff;
+  color: #06102a;
+  border-color: #00ffcc;
+}
